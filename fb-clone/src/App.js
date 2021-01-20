@@ -6,11 +6,18 @@ import './Sidebar.css'
 import './Header.css'
 import Feed from './Feed';
 import './Feed.css'
+import Widgets from './Widgets'
+
 
 function App() {
+  const user="venny";
   return (
     <div className="app">
-  {/*Header */}
+    {!user ? (
+      <h1>Login</h1>
+    ):(
+      <>
+      {/*Header */}
   <Header></Header>
 
 
@@ -21,12 +28,19 @@ function App() {
   {/*Feed*/}
   <Feed></Feed>
   {/*Widgets */}
+  <Widgets></Widgets>
 
   </div>
 
   
-    </div>
+    
+      </>
+    )
+    
+  }
+  </div>
   );
+ 
 }
 
 export default App;

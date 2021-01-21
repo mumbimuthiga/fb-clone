@@ -2,9 +2,15 @@ import { Button } from '@material-ui/core'
 import React from 'react'
 import "./Login.css"
 import fbimg from "./images/fbimg.png"
+import {auth ,provider} from "./Firebase"
 function Login() {
     const signin=(e)=>{
         e.preventDefault();
+        auth.signInWithPopup(provider)
+        .then(result=>{
+            console.log(result)
+        })
+        .catch((error)=>alert(error.message))
 
     }
     return (

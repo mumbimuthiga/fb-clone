@@ -7,14 +7,15 @@ import './Header.css'
 import Feed from './Feed';
 import './Feed.css'
 import Widgets from './Widgets'
+import Login from './Login'
 
 
 function App() {
-  const user="venny";
+  const user=null;
   return (
     <div className="app">
     {!user ? (
-      <h1>Login</h1>
+      <Login></Login>
     ):(
       <>
       {/*Header */}

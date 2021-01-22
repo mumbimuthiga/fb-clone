@@ -3,12 +3,25 @@ import React from 'react'
 import "./Login.css"
 import fbimg from "./images/fbimg.png"
 import {auth ,provider} from "./Firebase"
+import {actionTypes} from "./reducer";
+import {useStateValue} from "./StateProvider";
+
 function Login() {
+    const [state,dispatch]=useStateValue();
     const signin=(e)=>{
         e.preventDefault();
         auth.signInWithPopup(provider)
         .then(result=>{
-            console.log(result)
+            dispatch({
+                type:actionTypes.SET_USER,
+                user:result.user,
+
+            })
+
+        
+
+
+            //console.log(result)
         })
         .catch((error)=>alert(error.message))
 
@@ -23,7 +36,7 @@ function Login() {
        <img src={fbimg} className="fb_name" alt=""></img>
        
         </div>
-        <div class="btn__login">
+        <div className="btn__login">
 <Button type="submit"onClick={signin}>Sign In</Button>
       </div>  
      

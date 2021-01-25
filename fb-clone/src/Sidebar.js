@@ -9,11 +9,13 @@ import ChatIcon from '@material-ui/icons/Chat';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {useStateValue} from './StateProvider';
 function Sidebar() {
+    const [{user} ,dispatch]=useStateValue();
     return (
         <div className='sidebar'>
-        <SidebarRow src='https://scontent.ffjr1-2.fna.fbcdn.net/v/t1.0-9/52047628_2064911377141850_3925252065869168640_o.jpg?_nc_cat=109&ccb=2&_nc_sid=e3f864&_nc_ohc=NPf5oXD9BFEAX9YMF2J&_nc_ht=scontent.ffjr1-2.fna&oh=b7b0a0bf752472471ba30561579072dd&oe=60255EDF'
-         title="VennyKeller"></SidebarRow>
+        <SidebarRow src={user.photoURL}
+         title={user.displayName}></SidebarRow>
 
         <SidebarRow Icon={LocalHospitalIcon}
          title="COVID-19 Information Center">
